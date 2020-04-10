@@ -15,13 +15,21 @@ V. Masrani and G. Murray and T. Field and G. Carenini, ACL 2017 BioNLP Workshop,
 The repo contains slight variants of scripts that you are already familiar with (from the search engine practical):
 
 * **ngrams.py:** for each class, outputs a count file of all ngrams with a specific size. Run with 
-    python3 ngrams.py [ngram size].
+
+    python3 ngrams.py [ngram size]
+
 * **words.py**: the equivalent of the ngrams.py script, for word tokens. Run with
+
     python3 words.py
+
 * **output\_top_tf\_idfs.py**: for each class, outputs a tf\_idf file with the top k features for that class. Run with 
+
     python3 output\_top_tf\_idfs.py [num_features_per_class].
+
 * **mk_doc_vectors**: this one is a slight variant on *mk_category_vectors* in the search engine practical. It makes vectors for each blog post in the data, using the features from the tf\_idf files. Run with 
+
     python3 mk_doc_vectors 
+
 (it will take a few minutes, especially if you have many features. So make yourself a cup of coffee...)
 
 Prepare your features using the above scripts (for ngrams, use sizes in range 3-6). You should end up with a set of document vectors for both classes.
