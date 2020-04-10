@@ -42,12 +42,12 @@ train1_size = get_train_size(t1, cl_dict[t1])
 train2_size = get_train_size(t2, cl_dict[t2])
 print()
 
-#build numpy arrays and lists of urls
-t1_train, t1_test, t1_train_urls, t1_test_urls = \
+#build numpy arrays and lists of docs
+t1_train, t1_test, t1_train_docs, t1_test_docs = \
 	make_arrays(cl_dict[t1], train1_size)
-t2_train, t2_test, t2_train_urls, t2_test_urls = \
+t2_train, t2_test, t2_train_docs, t2_test_docs = \
 	make_arrays(cl_dict[t2], train2_size)
-train_urls = t1_train_urls + t2_train_urls
+train_docs = t1_train_docs + t2_train_docs
 
 test1_size = len(t1_test)
 test2_size = len(t2_test)
@@ -77,8 +77,8 @@ print()
 
 print('Score: {}\n'.format(score))
 
-#print('Training urls:')
-#print('\n'.join([train_urls[s] for s in clf.support_]))
+#print('Training docs:')
+#print('\n'.join([train_docs[s] for s in clf.support_]))
 #print()
 
 #make confusion matrix

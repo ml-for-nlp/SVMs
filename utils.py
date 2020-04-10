@@ -40,11 +40,11 @@ def get_train_size(cl, dic):
             return n
 
 def make_arrays(space, n):
-#serve numpy arrays and source urls for SVM
+#serve numpy arrays and source docs for SVM
     training = []
-    training_urls = []
+    training_docs = []
     test = []
-    test_urls = []
+    test_docs = []
     c = 0
 
     keys=list(space.keys())
@@ -54,12 +54,12 @@ def make_arrays(space, n):
         value=space[key]
         if c < n:
             training.append(value)
-            training_urls.append(key)
+            training_docs.append(key)
             c += 1
         else:
             test.append(value)
-            test_urls.append(key)
-    return np.array(training), np.array(test), training_urls, test_urls
+            test_docs.append(key)
+    return np.array(training), np.array(test), training_docs, test_docs
 
 def make_labels(size1, size2):
     out = []
@@ -101,9 +101,9 @@ def parse_file(filename):
         for line in f:
             try:
                 fields = line.rstrip('\n').split(',')
-                url = fields[0]
+                doc = fields[0]
                 vector = np.array([float(i) for i in fields[1:]])
-                dm[url] = vector
+                dm[doc] = vector
             except:
                 pass
     return dm

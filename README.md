@@ -4,7 +4,7 @@ This is an implementation of an SVM classifier for Alzheimer detection, given a 
 
 ### The data
 
-The data will be provided to you in a processed form. The raw blog posts can be found here: [https://github.com/vmasrani/blog_corpus](https://github.com/vmasrani/blog_corpus)
+The data will be provided to you in a processed form. The raw blog posts can be extracted using the script here: [https://github.com/vmasrani/blog_corpus](https://github.com/vmasrani/blog_corpus). This dataset was produced for the following publication:
 
 Detecting Dementia through Retrospective Analysis of Routine Blog Posts by Bloggers with Dementia,
 V. Masrani and G. Murray and T. Field and G. Carenini, ACL 2017 BioNLP Workshop, Vancouver, Canada.
@@ -16,19 +16,19 @@ The repo contains slight variants of scripts that you are already familiar with 
 
 * **ngrams.py:** for each class, outputs a count file of all ngrams with a specific size. Run with 
 
-    python3 ngrams.py [ngram size]
+      python3 ngrams.py [ngram size]
 
-* **words.py**: the equivalent of the ngrams.py script, for word tokens. Run with
+* **words.py**: the equivalent of the ngrams.py script, but using word tokens. Run with
 
-    python3 words.py
+      python3 words.py
 
-* **output\_top_tf\_idfs.py**: for each class, outputs a tf\_idf file with the top k features for that class. Run with 
+* **output\_top_tfidfs.py**: for each class, outputs a tf\_idf file with the top k features for that class. Run with 
 
-    python3 output\_top_tf\_idfs.py [num_features_per_class].
+      python3 output\_top_tfidfs.py [words|ngrams] [num_features_per_class].
 
 * **mk_doc_vectors**: this one is a slight variant on *mk_category_vectors* in the search engine practical. It makes vectors for each blog post in the data, using the features from the tf\_idf files. Run with 
 
-    python3 mk_doc_vectors 
+      python3 mk_doc_vectors [words|ngrams]
 
 (it will take a few minutes, especially if you have many features. So make yourself a cup of coffee...)
 
@@ -60,25 +60,23 @@ In addition, you can output the URLs corresponding to the support vectors for th
 
 
 
-
-### Inspecting support vectors
+### Inspecting the number of support vectors
 
 Run the classifier with different kernels and notice the difference in number of support vectors selected by the classifier (that is the *nSV* value in the output). What do you conclude?
 
-Check out the documents for a few support vectors. What do you notice?
 
+### Understanding the effect of class distribution
+
+Try and play with the number of documents you use for training in each class. What do you notice? Is that what you expected?
 
 
 ### Understanding your feature set
 
 What are your results like? Too bad? Too good? Go and look at your feature set in *data/vocab_file.txt*. Is everything as it should be? 
 
-What happens when you change the number of features in *output\_top\_tf\_idfs.py*? Do you now see why you are getting the kind of results you're seeing? 
+What happens when you change the number of features in *output\_top\_tf\_idfs.py*? Do you now see why you are getting the kind of results you're seeing? Pay attention to your *recall* (the number of 'retained documents' at the end of running *mk_doc_vectors*, which shows the proportion of the dataset for which a vector could be built using the features at our disposal.
 
 Change your feature set to have more sensible results... You can split the work between yourselves and implement / test different possible ideas.
 
 
 
-### Understanding the effect of class distribution
-
-Try and play with the number of documents you use for training in each class. What do you notice? Is there a correlation between how balanced the training data is and how close the topics are? 
