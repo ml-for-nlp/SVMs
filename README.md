@@ -54,9 +54,6 @@ The program will ask you to choose how many training instances you want to use f
 
 We then get the output of the SVM, the score over the test data. Two confusion matrices will also be printed as .png in your directory, showing the errors made by the system (one version shows error frequencies, and the other percentages of errors).
 
-In addition, you can output the URLs corresponding to the support vectors for the classification using the --show-urls flag:
-
-    python3 classification.py --C=100 --kernel=linear --show-support
 
 
 
