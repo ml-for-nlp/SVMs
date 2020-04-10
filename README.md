@@ -22,9 +22,9 @@ The repo contains slight variants of scripts that you are already familiar with 
 
       python3 words.py
 
-* **output\_top_tfidfs.py**: for each class, outputs a tf\_idf file with the top k features for that class. Run with 
+* **output_top_tfidfs.py**: for each class, outputs a tf\_idf file with the top k features for that class. Run with 
 
-      python3 output\_top_tfidfs.py [words|ngrams] [num_features_per_class].
+      python3 output_top_tfidfs.py [words|ngrams] [num_features_per_class].
 
 * **mk_doc_vectors**: this one is a slight variant on *mk_category_vectors* in the search engine practical. It makes vectors for each blog post in the data, using the features from the tf\_idf files. Run with 
 
