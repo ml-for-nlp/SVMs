@@ -4,7 +4,9 @@ This is an implementation of an SVM classifier for Alzheimer detection, given a 
 
 ### The data
 
-The data will be provided to you in a processed form. The raw blog posts can be extracted using the script here: [https://github.com/vmasrani/blog_corpus](https://github.com/vmasrani/blog_corpus). This dataset was produced for the following publication:
+The data is provided to you in a processed form, in the *data* directory. The *class1* folder contains data from Alzheimer patients, while the *class2* folder contains data from the control group. 
+
+If you want to know where the data came from, note that the raw blog posts can be extracted using the script here: [https://github.com/vmasrani/blog_corpus](https://github.com/vmasrani/blog_corpus). This dataset was produced for the following publication:
 
 Detecting Dementia through Retrospective Analysis of Routine Blog Posts by Bloggers with Dementia,
 V. Masrani and G. Murray and T. Field and G. Carenini, ACL 2017 BioNLP Workshop, Vancouver, Canada.
