@@ -82,7 +82,7 @@ for cat in catdirs:
             vecs[url] = np.zeros(len(vocab))
         if l[:5] == "</doc":
             vecs[url] = normalise(vecs[url])
-            print(url,sum(vecs[url]))
+            print(url)
         if feature_type == "ngrams":
             for i in range(3,7):
                 ngrams = get_ngrams(l,i)

@@ -2,9 +2,6 @@ import random
 import numpy as np
 from itertools import product
 from math import sqrt
-from matplotlib import cm
-import matplotlib.pyplot as plt
-from pandas import DataFrame
 from sklearn.decomposition import PCA
 from sklearn.metrics import confusion_matrix
 
@@ -108,48 +105,3 @@ def parse_file(filename):
                 pass
     return dm
 
-def plot_confmat(cm, classes, normalized, \
-    title = 'Confusion matrix', cmap = plt.cm.Blues):
-
-    if normalized:
-        cm = cm.astype('float') / cm.sum(axis = 1)[:, np.newaxis]
-        print('Normalized confusion matrix:')
-    else:
-        print('Confusion matrix, without normalization:')
-    print(cm)
-    print()
-
-    plt.imshow(cm, interpolation = 'nearest', cmap = cmap)
-    plt.title(title)
-    plt.colorbar()
-    tick_marks = np.arange(len(classes))
-    plt.xticks(tick_marks, classes, rotation = 45)
-    plt.yticks(tick_marks, classes)
-
-    fmt = '.2f' if normalized else 'd'
-    threshold = cm.max() / 2
-    for i, j in product(range(cm.shape[0]), range(cm.shape[1])):
-        plt.text(j, i, format(cm[i, j], fmt), \
-        horizontalalignment = 'center', \
-                color = 'white' if cm[i, j] > threshold else 'black')
-
-    plt.tight_layout()
-    plt.ylabel('True label')
-    plt.xlabel('Predicted label')
-
-def make_confmat(y_test, y_pred, t1, t2):
-    #compute confusion matrix
-    cm = confusion_matrix(y_test, y_pred)
-    np.set_printoptions(precision = 2)
-
-    #plot non-normalized confusion matrix
-    plt.figure()
-    plot_confmat(cm, classes = [t1,t2], normalized = False, \
-        title = 'Confusion matrix, without normalization')
-    plt.savefig("confusion.png")
-
-    #plot normalized confusion matrix
-    plt.figure()
-    plot_confmat(cm, classes = [t1,t2], normalized = True, \
-        title = 'Normalized confusion matrix')
-    plt.savefig("confusion-norm.png")

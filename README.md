@@ -30,7 +30,7 @@ The repo contains slight variants of scripts that you are already familiar with 
 
 * **mk_doc_vectors**: this one is a slight variant on *mk_category_vectors* in the search engine practical. It makes vectors for each blog post in the data, using the features from the tf\_idf files. Run with 
 
-      python3 mk_doc_vectors [words|ngrams]
+      python3 -W ignore mk_doc_vectors [words|ngrams]
 
 (it will take a few minutes, especially if you have many features. So make yourself a cup of coffee...)
 
@@ -54,7 +54,7 @@ The program will ask you to choose how many training instances you want to use f
     class1 has 787 documents. How many do you want for training? 400
     class2 has 415 documents. How many do you want for training? 100
 
-We then get the output of the SVM, the score over the test data. Two confusion matrices will also be printed as .png in your directory, showing the errors made by the system (one version shows error frequencies, and the other percentages of errors).
+We then get the output of the SVM, the score over the test data. 
 
 
 
@@ -74,6 +74,9 @@ Try and play with the number of documents you use for training in each class. Wh
 What are your results like? Too bad? Too good? Go and look at your feature set in *data/vocab_file.txt*. Is everything as it should be? 
 
 What happens when you change the number of features in *output\_top\_tf\_idfs.py*? Do you now see why you are getting the kind of results you're seeing? Pay attention to your *recall* (the number of 'retained documents' at the end of running *mk_doc_vectors*, which shows the proportion of the dataset for which a vector could be built using the features at our disposal.
+
+
+### Open-ended project
 
 Change your feature set to have more sensible results... You can split the work between yourselves and implement / test different possible ideas.
 

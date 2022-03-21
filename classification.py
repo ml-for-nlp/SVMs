@@ -73,14 +73,14 @@ y_pred = clf.predict(x_test)
 print('\n') #needed because SVC prints output in a weird way
 print('SVC Model:')
 print(model)
-print()
 
+fir_matrix = confusion_matrix(y_test, y_pred)
 print('Score: {}\n'.format(score))
+print('Confusion matrix:')
+print(fir_matrix)
 
 #print('Training docs:')
 #print('\n'.join([train_docs[s] for s in clf.support_]))
 #print()
 
-#make confusion matrix
-make_confmat(y_pred, y_test, t1, t2) #prints some data
 
