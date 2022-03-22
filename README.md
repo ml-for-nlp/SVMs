@@ -18,7 +18,7 @@ The repo contains slight variants of preprocessing scripts that you are already 
 
 * **mk_doc_vectors**: this one is a slight variant on *mk_category_vectors* in the search engine practical. It makes vectors for each blog post in the data, using TF-IDF features. Run with 
 
-      python3 -W ignore mk_doc_vectors [words|ngrams]
+      python3 -W ignore mk_doc_vectors.py [words|ngrams]
 
 (Depending on your chosen number of features, it may take a few minutes, especially if you have many features. So make yourself a cup of coffee...)
 
