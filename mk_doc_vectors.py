@@ -1,12 +1,9 @@
-#USAGE: python3 mk_doc_vectors.py
-
 import re
 import sys
 import numpy as np
 from math import isnan
 from os import listdir
 from os.path import isfile, isdir, join
-from sklearn.decomposition import PCA
 
 feature_type = sys.argv[1]    
 
@@ -38,19 +35,6 @@ def get_ngrams(l,n):
 
 def normalise(v):
     return v / sum(v)
-
-def run_PCA(d,docs):
-    m = []
-    retained_docs = []
-    for url in docs:
-        if not isnan(sum(d[url])) and sum(d[url]) != 0:
-            m.append(d[url])
-            retained_docs.append(url)
-    pca = PCA(n_components=300)
-    pca.fit(m)
-    m_300d = pca.transform(m)
-    return np.array(m_300d), retained_docs
-
 
 def clean_docs(d,docs):
     m = []
@@ -84,7 +68,7 @@ for cat in catdirs:
             vecs[url] = normalise(vecs[url])
             print(url)
         if feature_type == "ngrams":
-            for i in range(3,7):
+            for i in range(3,7): #hacky...
                 ngrams = get_ngrams(l,i)
                 for k,v in ngrams.items():
                     if k in vocab:
